@@ -11,6 +11,7 @@ export default function IntroLoader({ children }: { children: React.ReactNode })
   useEffect(() => {
     if (localStorage.getItem('hasSeenIntro')) {
       setPhase('done');
+      window.dispatchEvent(new CustomEvent('intro:complete'));
       return;
     }
 
@@ -49,6 +50,7 @@ export default function IntroLoader({ children }: { children: React.ReactNode })
     if (videoRef.current) videoRef.current.pause();
     setPhase('done');
     localStorage.setItem('hasSeenIntro', 'true');
+    window.dispatchEvent(new CustomEvent('intro:complete'));
   };
 
   if (phase === null || phase === 'done') {

@@ -1,11 +1,20 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import SocialLinks from '@/components/SocialLinks'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+
+// Lazy-load the Globe so the heavy WebGL/cobe module is not
+// downloaded or executed until the component actually renders.
+// ssr:false is required because cobe uses browser-only WebGL APIs.
+const Globe = dynamic(
+  () => import('@/components/magicui/Globe').then((m) => m.Globe),
+  { ssr: false, loading: () => <div className="size-full aspect-square" /> }
+)
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -30,6 +39,20 @@ export default function HomeClient() {
   const containerRef = useRef(null)
   const heroRef = useRef(null)
   const arsenalRef = useRef(null)
+
+  // Gate Globe rendering until the intro is fully done.
+  // On first visit the intro plays (~10s); on repeat visits it's already set.
+  const [introReady, setIntroReady] = useState(() => {
+    if (typeof window === 'undefined') return false
+    return !!localStorage.getItem('hasSeenIntro')
+  })
+
+  useEffect(() => {
+    if (introReady) return
+    const handler = () => setIntroReady(true)
+    window.addEventListener('intro:complete', handler)
+    return () => window.removeEventListener('intro:complete', handler)
+  }, [introReady])
 
   const designations = ["Frontend", "Backend", "Full-Stack"]
   const [currentDesignation, setCurrentDesignation] = useState(0)
@@ -210,6 +233,124 @@ export default function HomeClient() {
           </motion.div>
         </div>
       </motion.section>
+
+      {/* ── Global Presence (Globe) ── */}
+      <section className="mb-section-gap max-w-container-max mx-auto px-gutter relative z-10 overflow-hidden">
+        {/* Section Header */}
+        <div className="flex items-center justify-center gap-4 mb-16">
+          <div className="h-[1px] w-12 md:w-32 bg-gradient-to-r from-transparent to-[#7c3aed]"></div>
+          <h2 className="font-mono text-xl md:text-2xl font-bold text-white tracking-[0.3em] uppercase text-center flex items-center gap-3">
+            <span className="material-symbols-outlined text-[#7c3aed] animate-pulse">public</span>
+            GLOBAL_REACH
+          </h2>
+          <div className="h-[1px] w-12 md:w-32 bg-gradient-to-l from-transparent to-[#7c3aed]"></div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          {/* Left: copy + stats */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="flex flex-col gap-8"
+          >
+            <div>
+              <p className="font-mono text-[#7c3aed] text-xs tracking-[0.25em] uppercase mb-3">
+                &gt;&gt; network_status: ONLINE
+              </p>
+              <h3 className="text-3xl md:text-4xl font-black text-white leading-tight mb-4">
+                Building for a{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7c3aed] to-[#a855f7]">
+                  Borderless
+                </span>{' '}Web
+              </h3>
+              <p className="text-white/60 font-body-lg text-base leading-relaxed">
+                Delivering high-performance, pixel-perfect applications that scale globally. 
+                From Dhaka to the world — every line of code crafted to connect people, 
+                regardless of geography or timezone.
+              </p>
+            </div>
+
+            {/* Stat Cards */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: 'Projects Shipped', value: '10+', icon: 'rocket_launch', color: 'text-[#7c3aed]', glow: 'rgba(124,58,237,0.15)' },
+                { label: 'Technologies', value: '15+', icon: 'code_blocks', color: 'text-[#a855f7]', glow: 'rgba(168,85,247,0.15)' },
+                { label: 'Availability', value: '24/7', icon: 'schedule', color: 'text-[#00dddd]', glow: 'rgba(0,221,221,0.15)' },
+                { label: 'Remote Ready', value: '100%', icon: 'wifi', color: 'text-green-400', glow: 'rgba(74,222,128,0.15)' },
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  className="relative overflow-hidden bg-[#100d16]/80 backdrop-blur-xl border border-white/5 rounded-lg p-5 flex flex-col gap-2 group cursor-default hover:border-[#7c3aed]/30 transition-all duration-300"
+                  style={{ boxShadow: `0 0 0px ${stat.glow}` }}
+                >
+                  <div className="absolute top-0 right-0 w-12 h-12 rounded-full blur-2xl opacity-30 group-hover:opacity-60 transition-opacity"
+                    style={{ background: stat.glow }}></div>
+                  <span className={`material-symbols-outlined text-xl ${stat.color}`}>{stat.icon}</span>
+                  <p className="text-2xl font-black text-white font-mono">{stat.value}</p>
+                  <p className="text-xs text-white/50 font-mono uppercase tracking-wider">{stat.label}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <motion.div whileHover={{ x: 5 }} className="inline-flex">
+              <Link
+                href="/contact"
+                className="group flex items-center gap-3 font-mono text-xs text-[#7c3aed] border border-[#7c3aed]/30 bg-[#7c3aed]/5 px-6 py-3 hover:bg-[#7c3aed]/15 hover:border-[#7c3aed]/60 transition-all duration-300 uppercase tracking-widest rounded-sm"
+              >
+                <span className="material-symbols-outlined text-sm group-hover:animate-pulse">send</span>
+                INITIATE_CONTACT
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          {/* Right: Interactive Globe */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
+            className="relative flex items-center justify-center"
+          >
+            {/* Glow ring behind globe */}
+            <div className="absolute inset-0 rounded-full bg-[#7c3aed]/5 blur-[60px] pointer-events-none"></div>
+
+            {/* Globe container */}
+            <div className="relative w-full max-w-[480px] aspect-square">
+              {/* Corner accents */}
+              <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-[#7c3aed]/50 rounded-tl-sm pointer-events-none z-10"></div>
+              <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#7c3aed]/50 rounded-tr-sm pointer-events-none z-10"></div>
+              <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#7c3aed]/50 rounded-bl-sm pointer-events-none z-10"></div>
+              <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#7c3aed]/50 rounded-br-sm pointer-events-none z-10"></div>
+
+              {/* Scanning line animation */}
+              <motion.div
+                animate={{ top: ['0%', '100%', '0%'] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                className="absolute left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#7c3aed]/60 to-transparent pointer-events-none z-10"
+              />
+
+              {/* Status badge */}
+              <div className="absolute top-3 right-3 z-20 flex items-center gap-1.5 bg-black/60 backdrop-blur-md border border-[#7c3aed]/20 rounded-full px-3 py-1">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#7c3aed] animate-pulse shadow-[0_0_6px_#7c3aed]"></div>
+                <span className="font-mono text-[9px] text-[#7c3aed]/80 uppercase tracking-widest">LIVE</span>
+              </div>
+
+              {introReady && <Globe />}
+
+              {/* Bottom fade overlay */}
+              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/50 to-transparent pointer-events-none rounded-b-full"></div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* ── Engineering Arsenal ── */}
       <section ref={arsenalRef} className="mb-section-gap perspective-1000 max-w-container-max mx-auto px-gutter relative z-10">
