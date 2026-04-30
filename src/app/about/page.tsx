@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import type { Metadata } from 'next'
+import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'About — DevPortfolio',
@@ -117,63 +118,7 @@ export default function AboutPage() {
                   open.
                 </p>
               </div>
-              <form className="space-y-6 relative z-10">
-                <div className="space-y-2">
-                  <label
-                    className="font-label-caps text-label-caps text-on-surface-variant block pl-1"
-                    htmlFor="name"
-                  >
-                    Identification
-                  </label>
-                  <input
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-body-md text-on-surface placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white/[0.05] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
-                    id="name"
-                    placeholder="John Doe"
-                    type="text"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label
-                    className="font-label-caps text-label-caps text-on-surface-variant block pl-1"
-                    htmlFor="email"
-                  >
-                    Comm Link (Email)
-                  </label>
-                  <input
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-body-md text-on-surface placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white/[0.05] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
-                    id="email"
-                    placeholder="john@example.com"
-                    type="email"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label
-                    className="font-label-caps text-label-caps text-on-surface-variant block pl-1"
-                    htmlFor="message"
-                  >
-                    Payload (Message)
-                  </label>
-                  <textarea
-                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-body-md text-on-surface placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white/[0.05] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] resize-none"
-                    id="message"
-                    placeholder="Describe the parameters of your project..."
-                    rows={4}
-                  ></textarea>
-                </div>
-                <button
-                  className="w-full mt-4 bg-gradient-to-r from-primary-container to-inverse-primary text-on-primary-container py-4 rounded-lg font-headline-md text-headline-md hover:shadow-[0_0_20px_rgba(210,187,255,0.4)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] relative overflow-hidden group flex justify-center items-center gap-2"
-                  type="button"
-                >
-                  <span className="relative z-10">Transmit Data</span>
-                  <span
-                    className="material-symbols-outlined relative z-10 group-hover:translate-x-1 transition-transform duration-300"
-                    style={{ fontVariationSettings: "'FILL' 0" }}
-                  >
-                    send
-                  </span>
-                  <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </section>

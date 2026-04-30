@@ -189,13 +189,17 @@ export default function HomeClient() {
               Crafting high-fidelity digital experiences and robust architecture for the next generation of web-based operating systems. Specialized in React, Node.js, and high-performance visual interfaces.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6">
-              <Link href="/projects" className="bg-[#7c3aed] text-white text-sm px-10 py-4 font-bold tracking-widest hover:shadow-[0_0_25px_rgba(124,58,237,0.6)] active:scale-95 transition-all uppercase">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 sm:gap-6 flex-wrap justify-center items-center">
+              <Link href="/projects" className="bg-[#7c3aed] text-white text-sm px-8 py-4 font-bold tracking-widest hover:shadow-[0_0_25px_rgba(124,58,237,0.6)] active:scale-95 transition-all uppercase flex-shrink-0 text-center">
                 INITIALIZE_PROJECT
               </Link>
-              <Link href="/about" className="border border-white/20 backdrop-blur-md text-white text-sm px-10 py-4 font-bold tracking-widest hover:border-[#7c3aed] hover:text-[#7c3aed] active:scale-95 transition-all uppercase">
+              <Link href="/about" className="border border-white/20 backdrop-blur-md text-white text-sm px-8 py-4 font-bold tracking-widest hover:border-[#7c3aed] hover:text-[#7c3aed] active:scale-95 transition-all uppercase flex-shrink-0 text-center">
                 VIEW_ARCHIVE
               </Link>
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="border border-[#7c3aed]/50 text-[#7c3aed] bg-[#7c3aed]/10 text-sm px-8 py-4 font-bold tracking-widest hover:bg-[#7c3aed] hover:text-white active:scale-95 transition-all uppercase flex-shrink-0 flex items-center gap-2 justify-center">
+                <span className="material-symbols-outlined text-[18px]">download</span>
+                EXTRACT_RESUME
+              </a>
             </motion.div>
 
           </motion.div>
