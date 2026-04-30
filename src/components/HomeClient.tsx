@@ -13,6 +13,8 @@ const frontendSkills = [
   { icon: 'css', color: 'text-secondary', label: 'CSS3' },
   { icon: 'javascript', color: 'text-tertiary', label: 'JavaScript' },
   { icon: 'code', color: 'text-secondary-container', label: 'TypeScript' },
+  { icon: 'data_object', color: 'text-[#00dddd]', label: 'React' },
+  { icon: 'layers', color: 'text-white', label: 'Next.js' },
   { icon: 'style', color: 'text-primary-fixed', label: 'Tailwind CSS' },
 ]
 
