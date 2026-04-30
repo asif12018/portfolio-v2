@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import SocialLinks from '@/components/SocialLinks'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -200,6 +201,10 @@ export default function HomeClient() {
                 <span className="material-symbols-outlined text-[18px]">download</span>
                 EXTRACT_RESUME
               </a>
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <SocialLinks className="mt-8 justify-center" iconClassName="w-6 h-6" />
             </motion.div>
 
           </motion.div>

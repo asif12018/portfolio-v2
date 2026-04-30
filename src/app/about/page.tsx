@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import ContactForm from '@/components/ContactForm'
+import SocialLinks from '@/components/SocialLinks'
 
 export const metadata: Metadata = {
   title: 'About — DevPortfolio',
@@ -48,6 +49,7 @@ export default function AboutPage() {
                   <p className="font-body-md text-body-md text-primary">
                     Junior Frontend  & Backend Engineer
                   </p>
+                  <SocialLinks className="pt-2" />
                 </div>
                 
                 <div className="space-y-4">

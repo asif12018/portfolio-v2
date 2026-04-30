@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import SocialLinks from "@/components/SocialLinks";
 
 export const metadata: Metadata = {
   title: "Contact — DevPortfolio",
@@ -18,6 +19,9 @@ export default function ContactPage() {
           Have a project in mind or just want to say hello? The channel is
           always open.
         </p>
+        <div className="flex justify-center mt-6">
+          <SocialLinks />
+        </div>
       </section>
 
       <section className="mt-20 w-full max-w-3xl">

@@ -18,6 +18,7 @@ const projects = [
       '/cine-tube.jpg',
     alt: 'CineTube App Preview',
     offset: false,
+    best: true,
   },
   {
     id: 2,
@@ -95,6 +96,14 @@ export default function ProjectsPage() {
                 className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-105"
               />
             </div>
+
+            {/* Best Project Badge */}
+            {project.best && (
+              <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 bg-gradient-to-r from-yellow-400/90 to-orange-400/90 backdrop-blur-md text-black text-[10px] font-black tracking-[0.15em] uppercase px-3 py-1.5 rounded-full shadow-[0_0_20px_rgba(251,191,36,0.6)] border border-yellow-300/50">
+                <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
+                Best Project
+              </div>
+            )}
 
             <div className="p-8 flex flex-col flex-grow relative z-20">
               <h2 className="font-headline-md text-headline-md text-on-background mb-2 group-hover:text-primary transition-colors duration-300">

@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/projects', label: 'Projects' },
-  { href: '/experience', label: 'Experience' },
+  // { href: '/experience', label: 'Experience' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -34,10 +34,15 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="text-xl font-bold tracking-tighter text-white hover:opacity-80 transition-opacity duration-300 relative z-[60]"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300 relative z-[60]"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            DevPortfolio
+            <img
+              src="/logo.png"
+              alt="Asif Sheikh Logo"
+              className="w-9 h-9 rounded-lg object-cover"
+            />
+            <span className="text-xl font-bold tracking-tighter text-white">Asif<span className="text-[#7c3aed]">.</span></span>
           </Link>
 
           {/* Desktop Nav Links */}
