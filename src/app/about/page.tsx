@@ -1,0 +1,183 @@
+import Image from 'next/image'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About — DevPortfolio',
+  description: 'Learn more about Alex Mercer, Senior Frontend Engineer & UI Architect.',
+}
+
+export default function AboutPage() {
+  return (
+    <main className="flex-grow z-10 w-full max-w-container-max mx-auto px-gutter pt-32 pb-section-gap">
+      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary-container/10 blur-[150px] pointer-events-none z-0"></div>
+      <div className="fixed bottom-[-20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-secondary-container/10 blur-[150px] pointer-events-none z-0"></div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 relative z-10">
+        {/* Left Side: The Professional Bio */}
+        <section className="lg:col-span-7 flex flex-col gap-8">
+          <div className="space-y-4 px-2">
+            <h1 className="text-[72px] leading-[1.1] tracking-[-0.04em] font-extrabold text-on-surface tracking-tighter">
+              Architecting{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-br from-primary to-inverse-primary">
+                Digital
+              </span>{' '}
+              Realities.
+            </h1>
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+              A synthesis of design precision and engineering logic. Crafting scalable architectures
+              and high-fidelity interfaces that define modern product experiences.
+            </p>
+          </div>
+
+          <div className="relative bg-white/[0.03] backdrop-blur-[40px] border border-white/10 rounded-xl p-8 lg:p-12 overflow-hidden glass-edge group">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"></div>
+            <div className="relative z-10 flex flex-col sm:flex-row gap-8 items-start">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border border-white/10 overflow-hidden flex-shrink-0 bg-surface-container-high shadow-xl relative group-hover:border-primary/50 transition-colors duration-500">
+                <Image
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL9NDMCNnk_iatJUVMFo7vjTezIMh6ZnS0Ho-hMclitn8VfnPq6sExHeO5gb1wV9jMkjXbmIeog8CpAkuSQotFW01PS8OqWJfldS1HA9ndlOBFP0ab_wIbiEBJK9felj1SS2FfSH_0JbYcCqPxxvO1_UNabuoA4-Yx7Ys5SWTQHt4xFxVZGVLlKKv8qntqxVPK5TddjbFCnA6dEUcRsGIN2ddV8QwaLbBU7NMEYKKhFrdHR18Ju3EiaL02nhIs_vDaQbR1QCvfeXBw"
+                  alt="Alex Mercer"
+                  width={128}
+                  height={128}
+                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                />
+              </div>
+              <div className="space-y-6">
+                <div className="space-y-1">
+                  <h2 className="font-headline-md text-headline-md text-on-surface">Alex Mercer</h2>
+                  <p className="font-body-md text-body-md text-primary">
+                    Senior Frontend Engineer &amp; UI Architect
+                  </p>
+                </div>
+                
+                <div className="space-y-4">
+                  <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    <strong>My Journey:</strong> My programming journey began back in college when I first discovered the magic of turning lines of code into interactive digital experiences. What started as tinkering with basic HTML and CSS quickly evolved into a deep passion for software architecture and full-stack development. Over the years, I have continuously honed my skills, adapting to new technologies and frameworks to build scalable applications.
+                  </p>
+                  
+                  <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    <strong>What I Do:</strong> I specialize in component-driven architecture and design system integration. I genuinely enjoy the challenge of translating complex requirements into elegant, high-performance interfaces. My focus is always on creating digital products that are as robust under the hood as they are aesthetically uncompromising on the surface.
+                  </p>
+                  
+                  <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                    <strong>Beyond the Screen:</strong> When I&apos;m not immersed in code, you can usually find me painting—a hobby that fuels my creativity and appreciation for visual arts. I also enjoy playing competitive sports, particularly basketball, which helps me stay active and maintain a sharp, focused mindset.
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-white/5 space-y-3">
+                  <h3 className="font-label-caps text-label-caps text-outline">Educational Background</h3>
+                  <div className="flex flex-col gap-2 mb-4">
+                    <div className="bg-white/[0.02] backdrop-blur-md border border-white/10 p-4 rounded-lg">
+                      <h4 className="font-bold text-white text-lg">B.Sc. in Computer Science & Engineering</h4>
+                      <p className="text-on-surface-variant text-sm">Tech University • 2014 - 2018</p>
+                      <p className="text-on-surface-variant text-sm mt-1">Graduated with honors, focusing on Human-Computer Interaction and Software Engineering.</p>
+                    </div>
+                  </div>
+
+                  <h3 className="font-label-caps text-label-caps text-outline">Core Competencies</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['React Ecosystem', 'TypeScript', 'Next.js', 'Design Systems', 'Full-Stack Architecture'].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-4 py-1.5 rounded-full border border-white/10 text-label-caps text-on-surface-variant bg-white/[0.02] backdrop-blur-md"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-surface-container-low border border-white/5 rounded-lg p-6 flex flex-col gap-2 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="text-[72px] leading-[1.1] font-extrabold text-on-surface leading-none">8+</span>
+              <span className="font-label-caps text-label-caps text-outline">Years Experience</span>
+            </div>
+            <div className="bg-surface-container-low border border-white/5 rounded-lg p-6 flex flex-col gap-2 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <span className="text-[72px] leading-[1.1] font-extrabold text-on-surface leading-none">42</span>
+              <span className="font-label-caps text-label-caps text-outline">Projects Deployed</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Right Side: The Contact Form */}
+        <section className="lg:col-span-5 flex flex-col">
+          <div className="sticky top-32 w-full">
+            <div className="bg-white/[0.03] backdrop-blur-[60px] border border-white/10 rounded-xl p-8 shadow-2xl glass-edge relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-white/[0.04] to-transparent rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none blur-[40px]"></div>
+              <div className="mb-8 relative z-10">
+                <h2 className="font-headline-lg text-headline-lg text-on-surface mb-2">
+                  Initiate Transmission.
+                </h2>
+                <p className="font-body-md text-body-md text-on-surface-variant">
+                  Whether it&apos;s a structural challenge or a conceptual inquiry, the channel is
+                  open.
+                </p>
+              </div>
+              <form className="space-y-6 relative z-10">
+                <div className="space-y-2">
+                  <label
+                    className="font-label-caps text-label-caps text-on-surface-variant block pl-1"
+                    htmlFor="name"
+                  >
+                    Identification
+                  </label>
+                  <input
+                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-body-md text-on-surface placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white/[0.05] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                    id="name"
+                    placeholder="John Doe"
+                    type="text"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label
+                    className="font-label-caps text-label-caps text-on-surface-variant block pl-1"
+                    htmlFor="email"
+                  >
+                    Comm Link (Email)
+                  </label>
+                  <input
+                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-body-md text-on-surface placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white/[0.05] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                    id="email"
+                    placeholder="john@example.com"
+                    type="email"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label
+                    className="font-label-caps text-label-caps text-on-surface-variant block pl-1"
+                    htmlFor="message"
+                  >
+                    Payload (Message)
+                  </label>
+                  <textarea
+                    className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-body-md text-on-surface placeholder:text-white/20 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:bg-white/[0.05] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] resize-none"
+                    id="message"
+                    placeholder="Describe the parameters of your project..."
+                    rows={4}
+                  ></textarea>
+                </div>
+                <button
+                  className="w-full mt-4 bg-gradient-to-r from-primary-container to-inverse-primary text-on-primary-container py-4 rounded-lg font-headline-md text-headline-md hover:shadow-[0_0_20px_rgba(210,187,255,0.4)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] relative overflow-hidden group flex justify-center items-center gap-2"
+                  type="button"
+                >
+                  <span className="relative z-10">Transmit Data</span>
+                  <span
+                    className="material-symbols-outlined relative z-10 group-hover:translate-x-1 transition-transform duration-300"
+                    style={{ fontVariationSettings: "'FILL' 0" }}
+                  >
+                    send
+                  </span>
+                  <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  )
+}
