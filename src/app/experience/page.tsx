@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Experience — DevPortfolio',
-  description: 'Professional journey and technical milestones of Alex Mercer.',
+  title: 'Experience — Asif Sheikh',
+  description: 'Professional journey and technical milestones of Asif Sheikh.',
 }
 
 const experiences = [

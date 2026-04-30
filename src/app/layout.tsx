@@ -13,7 +13,7 @@ import IntroLoader from '@/components/IntroLoader'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'DevPortfolio — Alex Mercer',
+  title: 'Asif Sheikh',
   description: 'Full-Stack Web Developer — building exceptional, performant, and scalable digital experiences.',
 }
 

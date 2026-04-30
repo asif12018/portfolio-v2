@@ -186,7 +186,7 @@ export default function HomeClient() {
             </motion.div>
 
             <motion.p variants={itemVariants} className="font-body-lg text-white/60 max-w-2xl mb-12 text-lg">
-              Crafting high-fidelity digital experiences and robust architecture for the next generation of web-based operating systems. Specialized in React, Node.js, and high-performance visual interfaces.
+              Engineering high-fidelity frontend interfaces and robust backend systems for the next generation of web-based platforms. Specialized in full-stack architecture with React, Next.js, Node.js, and Prisma.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 sm:gap-6 flex-wrap justify-center items-center">
@@ -196,7 +196,7 @@ export default function HomeClient() {
               <Link href="/about" className="border border-white/20 backdrop-blur-md text-white text-sm px-8 py-4 font-bold tracking-widest hover:border-[#7c3aed] hover:text-[#7c3aed] active:scale-95 transition-all uppercase flex-shrink-0 text-center">
                 VIEW_ARCHIVE
               </Link>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="border border-[#7c3aed]/50 text-[#7c3aed] bg-[#7c3aed]/10 text-sm px-8 py-4 font-bold tracking-widest hover:bg-[#7c3aed] hover:text-white active:scale-95 transition-all uppercase flex-shrink-0 flex items-center gap-2 justify-center">
+              <a href="https://drive.google.com/uc?export=download&id=17XL1g3Qb2QwpzC42b5YvJNd8ub35Isf7" target="_blank" rel="noopener noreferrer" className="border border-[#7c3aed]/50 text-[#7c3aed] bg-[#7c3aed]/10 text-sm px-8 py-4 font-bold tracking-widest hover:bg-[#7c3aed] hover:text-white active:scale-95 transition-all uppercase flex-shrink-0 flex items-center gap-2 justify-center">
                 <span className="material-symbols-outlined text-[18px]">download</span>
                 EXTRACT_RESUME
               </a>

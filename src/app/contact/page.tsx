@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact — DevPortfolio",
   description:
-    "Initiate a transmission. Reach out to Alex Mercer for collaborations or inquiries.",
+    "Initiate a transmission. Reach out to Asif Sheikh for collaborations or inquiries.",
 };
 
 export default function ContactPage() {
