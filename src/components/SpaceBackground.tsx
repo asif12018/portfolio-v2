@@ -174,7 +174,7 @@ export default function SpaceBackground() {
       let hoveredPlanet: Planet | null = null;
       const orbitTilt = Math.PI / 10; // 18 degree tilt for all orbits to look 3D
 
-      solarRings.forEach((ring) => {
+      for (const ring of solarRings) {
         // Draw Orbit Line
         ctx.beginPath()
         ctx.ellipse(sunX, sunY, ring.radius, ring.radius * 0.35, orbitTilt, 0, Math.PI * 2)
@@ -182,7 +182,7 @@ export default function SpaceBackground() {
         ctx.lineWidth = 1
         ctx.stroke()
 
-        ring.planets.forEach(p => {
+        for (const p of ring.planets) {
           // Calculate parametric position
           const px = ring.radius * Math.cos(p.angle);
           const py = ring.radius * 0.35 * Math.sin(p.angle);
@@ -242,8 +242,8 @@ export default function SpaceBackground() {
           ctx.ellipse(planetX - renderRadius * 0.3, planetY - renderRadius * 0.4, renderRadius * 0.5, renderRadius * 0.2, Math.PI / -6, 0, Math.PI * 2);
           ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
           ctx.fill();
-        })
-      })
+        }
+      }
 
       // --- Draw Tooltip (Top layer) ---
       if (hoveredPlanet && hoveredPlanet.currentX && hoveredPlanet.currentY) {
