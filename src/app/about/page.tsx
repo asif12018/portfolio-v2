@@ -70,8 +70,8 @@ export default function AboutPage() {
                   <h3 className="font-label-caps text-label-caps text-outline">Educational Background</h3>
                   <div className="flex flex-col gap-2 mb-4">
                     <div className="bg-white/[0.02] backdrop-blur-md border border-white/10 p-4 rounded-lg">
-                      <h4 className="font-bold text-white text-lg">B.Sc. in Computer Science & Engineering</h4>
-                      <p className="text-on-surface-variant text-sm">Tech University • 2014 - 2018</p>
+                      <h4 className="font-bold text-white text-lg">B.Sc. in Electrical and Electronic Engineering</h4>
+                      <p className="text-on-surface-variant text-sm">Dhaka International University • 2022 - 2026</p>
                       <p className="text-on-surface-variant text-sm mt-1">Graduated with honors, focusing on Human-Computer Interaction and Software Engineering.</p>
                     </div>
                   </div>
